@@ -106,38 +106,27 @@ class Pending extends Component {
                 <Card className="step1 container">
                     <CardTitle className="Text"></CardTitle>
                     <CardBody>
-                    <Table className="supplier"dark hover responsive>
-                        <thead>
-                        <tr>
-                            <th>TITLE</th>
-                            <th>EMAIL</th>
-                            <th>DOMAIN</th>
-                            <th>DEPARTMENT</th>
-                        </tr>
-                        </thead>
-                        <tbody>
                         {
-                            pending.length <= 0 ? 
+                             pending.length <= 0 ? 
                             
-                           alert("No Pending Projects")
-                         
-                            :
-                            pending.map(supp => {
-                            const {_id,title,email,domain,category,git_proj_link,description} = supp;
-                            return (
-                                
-                                <tr key={_id} onClick={() => this.handleClick(_id,title,email,domain,category,git_proj_link,description)}>
-                                <td>{title}</td>
-                                <td>{email}</td>
-                                <td>{domain}</td>
-                                <td>{category}</td>   
-                                
-                                </tr>
+                             alert("No Pending Projects")
+                           
+                              :
+                              pending.map(supp => {
+                              const {_id,title,email,domain,category,git_proj_link,description} = supp;
+                              return (
+                                <Card className="Innercard" key={_id} onClick={() => this.handleClick(_id,title,email,domain,category,git_proj_link,description)}>
+                                <CardBody>
+                                    <h5>Title : {title}</h5>
+                                    <h5>Email : {email}</h5>
+                                    <h5>Department : {category}</h5>
+                                    <h5>Domain : {domain} </h5>
+                                </CardBody>
+                                </Card>
                             );
                             })
                         }
-                        </tbody>
-                        </Table>
+                        
                     </CardBody>
                 </Card>
 

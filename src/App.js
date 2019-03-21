@@ -13,9 +13,9 @@ class App extends Component {
         <div className="App">
         <Navbar/>
         <Switch>
-        <Route path='/Approved' component={Approved}/>
+          <Route path='/Approved' component={Approved}/>
           <Route path='/Pending' component={Pending}/>
-
+          <Route path='/Pending' component={Home}/>
         </Switch>
         
         </div>

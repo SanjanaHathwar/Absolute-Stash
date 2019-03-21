@@ -53,6 +53,9 @@ class Navbar extends React.Component {
   showpending = () => {
     this.props.history.push("/Pending");  
   }
+  showhome = () => {
+    this.props.history.push("/Home");
+  }
     
   render () {
 
@@ -65,7 +68,7 @@ class Navbar extends React.Component {
         <AppBar position="fixed" className={classes.appBar}>
           <Toolbar>
             <Typography variant="h6" color="inherit" noWrap>
-            Home
+            Absolute Stash
             </Typography>
           </Toolbar>
         </AppBar>
@@ -77,14 +80,16 @@ class Navbar extends React.Component {
           }}
           anchor="left"
         >
-          <div className={classes.toolbar} />
+          <div className={classes.toolbar} /><br/>
           <Divider />
+          
+          <List><br/>
           <Divider />
-          <List>
-              <ListItem button >
+              <ListItem button  onClick={this.showhome}>
                 <ListItemIcon></ListItemIcon>
                 <ListItemText>Home</ListItemText>
               </ListItem>
+              
               <ListItem button onClick={this.showapproved}>
                 <ListItemIcon></ListItemIcon>
                 <ListItemText>Approved Projects</ListItemText>

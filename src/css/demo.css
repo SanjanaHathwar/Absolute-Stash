@@ -14,3 +14,11 @@
 .alert {
     margin-top:500px;
 }
+
+.innercard {
+    width:400px;
+    height: auto;
+    font-family: Comfortaa;
+    background-color: linear-gradient( pink,purple);
+
+}
