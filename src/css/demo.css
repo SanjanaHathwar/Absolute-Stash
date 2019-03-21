@@ -1,7 +1,16 @@
 .step1 {
 
-    width: 950px;
+    width: inherit;
     height:auto;
     opacity: 100%;
-    box-shadow: 0px 3px 6px lightgrey 
+    box-shadow: 0px 3px 6px lightgrey ;
+   float:right;
+}
+
+.text {
+    color:white;
+}
+
+.alert {
+    margin-top:500px;
 }

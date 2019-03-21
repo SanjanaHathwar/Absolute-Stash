@@ -117,6 +117,11 @@ class Pending extends Component {
                         </thead>
                         <tbody>
                         {
+                            pending.length <= 0 ? 
+                            
+                           alert("No Pending Projects")
+                         
+                            :
                             pending.map(supp => {
                             const {_id,title,email,domain,category,git_proj_link,description} = supp;
                             return (

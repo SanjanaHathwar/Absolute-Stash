@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Card, CardBody,Table , Button } from 'reactstrap';
+import { Card, CardBody,Table , Button,Alert } from 'reactstrap';
 import CardTitle from 'reactstrap/lib/CardTitle';
 import '../../css/demo.css'
 
@@ -49,7 +49,7 @@ class Pending extends Component {
                 <Card className="step1 container">
                     <CardTitle className="Text"></CardTitle>
                     <CardBody>
-                    <Table className="supplier" dark responsive>
+                    <Table className="supplier" striped dark size="sm" responsive>
                         <thead>
                         <tr>
                             <th>TITLE</th>
@@ -60,6 +60,14 @@ class Pending extends Component {
                         </thead>
                         <tbody>
                         {
+                            suppliers.length <= 0 ? 
+                            
+                                <Alert color="warning" className="alert">
+                                    This is a warning alert — check it out!
+                                </Alert>
+                             
+                        :
+                        
                             suppliers.map(supp => {
                             const {_id,title,email,domain,category} = supp;
                             return (
@@ -72,7 +80,7 @@ class Pending extends Component {
                                 
                                 </tr>
                             );
-                            })
+                            }) 
                         }
                         </tbody>
                         </Table>
