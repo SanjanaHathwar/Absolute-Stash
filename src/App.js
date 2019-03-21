@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+
 import './App.css';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Pending from './components/Dashboard/Pending';
 import Approved from './components/Dashboard/Approved'
 import Navbar from './components/Layout/Navbar';
+import Home from './components/Dashboard/Home'
 
 class App extends Component {
   render() {

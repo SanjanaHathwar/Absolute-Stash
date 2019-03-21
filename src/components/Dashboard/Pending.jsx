@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Card, CardBody,Table,Alert , Button,Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import { Card, CardBody,Alert , Button,Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import CardTitle from 'reactstrap/lib/CardTitle';
 import axios from 'axios'
 import '../../css/demo.css'
