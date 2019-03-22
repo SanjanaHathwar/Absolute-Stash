@@ -33,3 +33,7 @@
     overflow: auto;
     overflow-y: auto;
 }
+
+.element {
+    width: 300px;
+}

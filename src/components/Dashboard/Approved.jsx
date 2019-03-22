@@ -63,7 +63,7 @@ class Pending extends Component {
                             suppliers.length <= 0 ? 
                             
                                 <Alert color="warning" className="alert">
-                                    This is a warning alert — check it out!
+                                    Loading projects
                                 </Alert>
                              
                         :

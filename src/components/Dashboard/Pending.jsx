@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Card, CardBody,Alert , Button,Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import { Card, CardBody,Table,Alert , Button,Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import CardTitle from 'reactstrap/lib/CardTitle';
 import axios from 'axios'
 import '../../css/demo.css'
@@ -60,6 +60,7 @@ class Pending extends Component {
     }
           
     approve = (id,email) => {
+        this.alert();
         console.log(id,email)
         let url= 'https://crowd-src.herokuapp.com/upload/edit/' +id;
         console.log(url)
@@ -69,8 +70,8 @@ class Pending extends Component {
         })
         .then(res => {
             console.log(res)
-            this.alert();
-            window.location.reload();
+            
+           
         })
 
     }
@@ -106,27 +107,33 @@ class Pending extends Component {
                 <Card className="step1 container">
                     <CardTitle className="Text"></CardTitle>
                     <CardBody>
+                    <Table className="supplier"dark hover responsive>
+                        <thead>
+                        <tr>
+                            <th>TITLE</th>
+                            <th>EMAIL</th>
+                            <th>DOMAIN</th>
+                            <th>DEPARTMENT</th>
+                        </tr>
+                        </thead>
+                        <tbody>
                         {
-                             pending.length <= 0 ? 
-                            
-                             alert("No Pending Projects")
-                           
-                              :
-                              pending.map(supp => {
-                              const {_id,title,email,domain,category,git_proj_link,description} = supp;
-                              return (
-                                <Card className="Innercard" key={_id} onClick={() => this.handleClick(_id,title,email,domain,category,git_proj_link,description)}>
-                                <CardBody>
-                                    <h5>Title : {title}</h5>
-                                    <h5>Email : {email}</h5>
-                                    <h5>Department : {category}</h5>
-                                    <h5>Domain : {domain} </h5>
-                                </CardBody>
-                                </Card>
+                            pending.map(supp => {
+                            const {_id,title,email,domain,category,git_proj_link,description} = supp;
+                            return (
+                                
+                                <tr key={_id} onClick={() => this.handleClick(_id,title,email,domain,category,git_proj_link,description)}>
+                                <td>{title}</td>
+                                <td>{email}</td>
+                                <td>{domain}</td>
+                                <td>{category}</td>   
+                                
+                                </tr>
                             );
                             })
                         }
-                        
+                        </tbody>
+                        </Table>
                     </CardBody>
                 </Card>
 
@@ -136,6 +143,7 @@ class Pending extends Component {
                 <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
                     <ModalHeader toggle={this.toggle}>{this.state.title}</ModalHeader>
                     <ModalBody>
+                       
                         <h7>Department : {this.state.category}</h7><br/><br/>
                         <h7>Domain : {this.state.domain}</h7><br/><br/>
                         <h7>Description : {this.state.description} </h7><br/><br/>
@@ -143,7 +151,7 @@ class Pending extends Component {
                     </ModalBody>
                     <ModalFooter>
                         <Button color="primary" onClick={()=>this.approve(this.state._id,this.state.email)}>Approve</Button>{' '}
-                        <Button color="secondary" onClick={this.dissapprove(this.state._id,this.state.email)}>Dissaprove</Button>
+                        <Button color="secondary" onClick={() =>this.dissapprove(this.state._id,this.state.email)}>Dissaprove</Button>
                     </ModalFooter>
                 </Modal>
                     
