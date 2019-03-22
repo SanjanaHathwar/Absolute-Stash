@@ -36,7 +36,8 @@ class Chart extends Component {
 		const options = {
 			theme: "light",
 			animationEnabled: true,
-           
+      responsive:true,
+      maintainAspectRatio: false,
 			exportEnabled: true,
 			
 			data: [{
@@ -48,7 +49,7 @@ class Chart extends Component {
 				indexLabelPlacement: "inside",
 				dataPoints: [
 					{ y: this.state.appcount, label: "Approved Projects" , color :'Indigo' },
-					{ y: this.state.pendcount, label: "Pending Projects" ,color :'RebeccaPurple' },
+					{ y: this.state.pendcount, label: "Pending Projects" ,color :'Crimson' },
 					
 				]
 			}]
@@ -58,8 +59,8 @@ class Chart extends Component {
 		return (
 		<div>
 			
-			<CanvasJSChart options = {options} 
-				/* onRef={ref => this.chart = ref} */
+			<CanvasJSChart  options = {options} 
+			className="element"
 			/>
 			{/*You can get reference to the chart instance as shown above using onRef. This allows you to access all chart properties and methods*/}
 		</div>
